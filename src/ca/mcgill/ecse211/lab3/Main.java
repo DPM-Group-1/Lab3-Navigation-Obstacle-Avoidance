@@ -12,7 +12,7 @@ public class Main {
   /**
    * Set this to true to print to a file.
    */
-  public static final boolean WRITE_TO_FILE = false;
+  public static final boolean WRITE_TO_FILE = true;
 
   /**
    * Main entry point.
@@ -30,7 +30,8 @@ public class Main {
     new Thread(usPoller).start();
     new Thread(odometer).start();
     new Thread(obstacleAvoidance).start();
-
+    new Thread(lcdInfo).start();
+    
     completeCourse();
 
     while (Button.waitForAnyPress() != Button.ID_ESCAPE)

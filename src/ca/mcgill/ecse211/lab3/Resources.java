@@ -102,6 +102,11 @@ public class Resources {
   public static final TextLCD LCD = LocalEV3.get().getTextLCD();
   
   /**
+   * The LCD printer thread.
+   */
+  public static final LCDInfo lcdInfo = new LCDInfo();
+  
+  /**
    * The ultrasonic poller.
    */
   public static UltrasonicPoller usPoller = new UltrasonicPoller();
