@@ -15,6 +15,11 @@ import lejos.hardware.sensor.EV3UltrasonicSensor;
  * <p>{@code import static ca.mcgill.ecse211.lab3.Resources.*;}
  */
 public class Resources {
+  
+  /**
+   * All dimensions are in centimeters.
+   * All speeds are in degrees/seconds.
+   */
 
   /**
    * The wheel radius.
@@ -24,7 +29,7 @@ public class Resources {
   /**
    * The robot width.
    */
-  public static final double TRACK = 15;
+  public static final double TRACK = 15.4;
   
   /**
    * The left radius.
@@ -49,7 +54,7 @@ public class Resources {
   /**
    * The fast speed.
    */
-  public static final int FAST = 200;
+  public static final int FAST = 150;
   
   /**
    * The slow speed.
