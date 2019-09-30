@@ -29,6 +29,7 @@ public class Main {
     
     new Thread(usPoller).start();
     new Thread(odometer).start();
+    new Thread(odometryCorrection).start();
     new Thread(obstacleAvoidance).start();
     new Thread(lcdInfo).start();
     

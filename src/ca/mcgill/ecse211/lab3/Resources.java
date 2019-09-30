@@ -144,6 +144,11 @@ public class Resources {
   public static Odometer odometer = new Odometer();
   
   /**
+   * The odometry correction.
+   */
+  public static OdometryCorrection odometryCorrection = new OdometryCorrection();
+  
+  /**
    * The obstacle avoidance.
    */
   public static ObstacleAvoidance obstacleAvoidance = new ObstacleAvoidance();
