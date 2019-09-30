@@ -32,6 +32,10 @@ public class Main {
     new Thread(obstacleAvoidance).start();
     new Thread(lcdInfo).start();
     
+    // Initialize starting position of the odometer.
+    boolean[] updateTruthTable = {true, true, true};
+    odometer.setPosition(STARTING_POSITION, updateTruthTable);
+    
     completeCourse();
 
     while (Button.waitForAnyPress() != Button.ID_ESCAPE)
@@ -51,9 +55,17 @@ public class Main {
   /**
    * Completes a course.
    */
+  
   private static void completeCourse() {
-    int[][] waypoints = {{60, 30}, {30, 30}, {30, 60}, {60, 0}};
+    // Convert from square coordinates to real coordinates.
+    int[][] waypoints = new int[WAYPOINTS.length][WAYPOINTS[0].length];
+    for (int i = 0; i < WAYPOINTS.length; i++) {
+      for (int j = 0; j < WAYPOINTS[i].length; j++) {
+        waypoints[i][j] = (int) (WAYPOINTS[i][j] * TILE_SIZE);
+      }
+    }
 
+    // Travel to each waypoints.
     for (int[] point : waypoints) {
       Navigation.travelTo(point[0], point[1], true);
       while (ObstacleAvoidance.traveling) {

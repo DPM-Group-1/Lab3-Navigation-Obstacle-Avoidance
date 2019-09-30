@@ -114,6 +114,7 @@ public class ObstacleAvoidance implements Runnable {
   
   /**
    * Get the current state of the state machine and returns it as a string.
+   * @author Mathieu Bissonnette
    * @return String The current state of the ObstacleAvoidance state machine.
    */
   public static String getState() {

@@ -64,7 +64,7 @@ public class Odometer implements Runnable {
     int rightTacho = rightMotor.getTachoCount();
 
     data[0] = (leftTacho * LEFT_RADIUS + rightTacho * RIGHT_RADIUS) * PI / 360.0;
-    data[1] = (rightTacho * RIGHT_RADIUS - leftTacho * LEFT_RADIUS) / WIDTH;
+    data[1] = (rightTacho * RIGHT_RADIUS - leftTacho * LEFT_RADIUS) / TRACK;
   }
 
   /*
