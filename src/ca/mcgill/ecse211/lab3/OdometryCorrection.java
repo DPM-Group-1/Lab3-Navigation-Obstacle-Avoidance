@@ -37,8 +37,6 @@ public class OdometryCorrection implements Runnable {
         Sound.beep(); // Audible indication that a line has been detected.
         
         double[] position = odometer.getPosition(); // Get position to identify which line has been crossed.
-        double correctedXPos = position[0]; // Initialize correction.
-        double correctedYPos = position[1];
         
         if ( (position[2] > 315 && position[2] < 360) || (position[2] > 0 && position[2] < 45) || (position[2] > 135 && position[2] < 225) ) { // Along Y axis.
           if (position[1] < TILE_SIZE * 1.5) { // If closer to first line...
