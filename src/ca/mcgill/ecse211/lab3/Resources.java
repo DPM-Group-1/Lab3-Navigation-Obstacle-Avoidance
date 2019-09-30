@@ -17,52 +17,46 @@ import lejos.hardware.sensor.EV3UltrasonicSensor;
 public class Resources {
   
   /**
-   * All dimensions are in centimeters.
-   * All speeds are in degrees/seconds.
+   * NUMERIC CONSTANTS
    */
 
   /**
-   * The wheel radius.
+   * The wheel radius in centimeters.
    */
   public static final double WHEEL_RADIUS = 2.130;
   
   /**
-   * The robot width.
+   * The robot width in centimeters.
    */
   public static final double TRACK = 15.4;
   
   /**
-   * The left radius.
+   * The left wheel radius in centimeters.
    */
-  public static final double LEFT_RADIUS = 2.75;
+  public static final double LEFT_RADIUS = WHEEL_RADIUS;
   
   /**
-   * The right radius.
+   * The right wheel radius in centimeters.
    */
-  public static final double RIGHT_RADIUS = 2.75;
+  public static final double RIGHT_RADIUS = WHEEL_RADIUS;
   
   /**
-   * The width.
-   */
-  public static final double WIDTH = 15.8;
-  
-  /**
-   * The odometer timeout period.
+   * The odometer timeout period in milliseconds.
    */
   public static final int TIMEOUT_PERIOD = 50;
   
   /**
-   * The fast speed.
+   * The fast speed in degrees/seconds.
    */
   public static final int FAST = 150;
   
   /**
-   * The slow speed.
+   * The slow speed in degrees/seconds.
    */
   public static final int SLOW = 100;
   
   /**
-   * The acceleration.
+   * The acceleration in degrees/seconds.
    */
   public static final int ACCELERATION = 4000;
   
@@ -75,6 +69,35 @@ public class Resources {
    * The cm error.
    */
   public static final double CM_ERR = 1.0;
+  
+  /**
+   * The tile size in centimeters.
+   */
+  public static final double TILE_SIZE = 30.48;
+  
+  /**
+   * Starting position in centimeters.
+   */
+  public static final double[] STARTING_POSITION = {TILE_SIZE, TILE_SIZE, 90};
+  
+  /**
+   * Minimum intensity differential between dark lines and light floor.
+   */
+  public static final double MIN_INTENSITY_DIFF = -0.045;
+  
+  /**
+   * Color sensor offset with wheel base in centimeters.
+   */
+  public static final double COLOR_SENSOR_OFFSET = 1.5;
+  
+  /**
+   * Waypoints (coordinates X,Y in square unit).
+   */
+  public static final double[][] WAYPOINTS = {{3,2}, {2,2}, {1,3}, {2,1}};
+  
+  /**
+   * HARDWARE CONSTANTS
+   */
   
   /**
    * The left motor.
@@ -100,6 +123,15 @@ public class Resources {
    * The LCD.
    */
   public static final TextLCD LCD = LocalEV3.get().getTextLCD();
+  
+  /**
+   * THREAD CONSTANTS
+   */
+  
+  /**
+   * The LCD printer thread.
+   */
+  public static final LCDInfo lcdInfo = new LCDInfo();
   
   /**
    * The ultrasonic poller.

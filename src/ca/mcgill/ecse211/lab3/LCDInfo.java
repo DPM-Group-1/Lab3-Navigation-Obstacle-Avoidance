@@ -18,13 +18,22 @@ public class LCDInfo implements Runnable {
   }
   
   public void run() { 
-    odometer.populatePosition(pos);
-    LCD.clear();
-    LCD.drawString("X: ", 0, 0);
-    LCD.drawString("Y: ", 0, 1);
-    LCD.drawString("H: ", 0, 2);
-    LCD.drawInt((int)(pos[0] * 10), 3, 0);
-    LCD.drawInt((int)(pos[1] * 10), 3, 1);
-    LCD.drawInt((int)pos[2], 3, 2);
+    while(true) {
+      odometer.populatePosition(pos);
+      LCD.clear();
+      LCD.drawString("X: ", 0, 0);
+      LCD.drawString("Y: ", 0, 1);
+      LCD.drawString("H: ", 0, 2);
+      LCD.drawString("Status: ", 0, 3);
+      LCD.drawInt((int)(pos[0] * 10), 3, 0);
+      LCD.drawInt((int)(pos[1] * 10), 3, 1);
+      LCD.drawInt((int)pos[2], 3, 2);
+      LCD.drawString(ObstacleAvoidance.getState(), 8, 3);
+      try {
+        Thread.sleep(LCD_REFRESH);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+    }
   }
 }
