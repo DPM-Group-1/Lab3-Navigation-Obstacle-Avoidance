@@ -12,7 +12,7 @@ public class Main {
   /**
    * Set this to true to print to a file.
    */
-  public static final boolean WRITE_TO_FILE = true;
+  public static final boolean WRITE_TO_FILE = false;
 
   /**
    * Main entry point.
@@ -21,11 +21,16 @@ public class Main {
    */
   public static void main(String[] args) {
 
-    Log.setLogging(true, true, false, true);
+    Log.setLogging(false, false, false, false);
 
     if (WRITE_TO_FILE) {
       setupLogWriter();
     }
+    
+    // Wait for a button press to start the navigation.
+    LCD.drawString("NaviBot MK-I", 0, 0);
+    LCD.drawString("Press to start.", 0, 1);
+    Button.waitForAnyPress();
     
     new Thread(usPoller).start();
     new Thread(odometer).start();
