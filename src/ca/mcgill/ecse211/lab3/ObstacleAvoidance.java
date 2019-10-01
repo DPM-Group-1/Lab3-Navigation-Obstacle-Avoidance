@@ -76,9 +76,12 @@ public class ObstacleAvoidance implements Runnable {
         checkEmergency();
         if (state == EMERGENCY) { // order matters!
             Log.log(Log.Sender.avoidance,"avoiding obstacle!");
+            double theta = odometer.getTheta();
             Navigation.setSpeeds(0, 0);
-            Navigation.turnTo(0,true);
+            Navigation.turnTo(Math.abs(theta-90) % 360,true); // Turn right.
             Navigation.goForward(25, false);
+            Navigation.turnTo(theta,true); // Turn left.
+            Navigation.goForward(40, false);
             Log.log(Log.Sender.avoidance,"obstacle avoided!");
             safe = true;
         } else if (!Navigation.isDone(destx, desty)) {

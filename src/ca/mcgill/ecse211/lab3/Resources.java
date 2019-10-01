@@ -28,7 +28,7 @@ public class Resources {
   /**
    * The robot width in centimeters.
    */
-  public static final double TRACK = 15.4;
+  public static final double TRACK = 15.6;
   
   /**
    * The left wheel radius in centimeters.
@@ -48,7 +48,7 @@ public class Resources {
   /**
    * The fast speed in degrees/seconds.
    */
-  public static final int FAST = 200;
+  public static final int FAST = 100;
   
   /**
    * The slow speed in degrees/seconds.
@@ -58,12 +58,12 @@ public class Resources {
   /**
    * The acceleration in degrees/seconds.
    */
-  public static final int ACCELERATION = 4000;
+  public static final int ACCELERATION = 1500;
   
   /**
    * The degree error.
    */
-  public static final double DEG_ERR = 3.0;
+  public static final double DEG_ERR = 2.0;
   
   /**
    * The cm error.
@@ -91,9 +91,19 @@ public class Resources {
   public static final double COLOR_SENSOR_OFFSET = 1.5;
   
   /**
-   * Waypoints (coordinates X,Y in square unit).
+   * Waypoints map arrays (arrays containing the waypoints in coordinates X,Y in square unit).
    */
-  public static final double[][] WAYPOINTS = {{1,3}};
+  public static final double[][][] WAYPOINTS_MAPS = {{{1,3},{2,2},{3,3},{3,2},{2,1}}, {{2,2},{1,3},{3,3},{3,2},{2,1}}, {{2,1},{3,2},{3,3},{1,3},{2,2}}, {{1,2},{2,3},{2,1},{3,2},{3,3}}};
+  
+  /**
+   * Selected map index.
+   */
+  public static final int MAP_INDEX = 3;
+  
+  /**
+   * Selected waypoints (X,Y square units)
+   */
+  public static final double[][] WAYPOINTS = WAYPOINTS_MAPS[MAP_INDEX];
   
   /**
    * Odometry correction angle in degree (Maximum of 22).
