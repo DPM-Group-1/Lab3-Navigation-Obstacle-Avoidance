@@ -5,7 +5,6 @@ import lejos.hardware.lcd.TextLCD;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.port.MotorPort;
 import lejos.hardware.port.SensorPort;
-import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.EV3UltrasonicSensor;
 
 /**
@@ -130,11 +129,6 @@ public class Resources {
   public static final EV3UltrasonicSensor usSensor = new EV3UltrasonicSensor(SensorPort.S1);
   
   /**
-   * The color sensor.
-   */
-  public static final EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S4);
-  
-  /**
    * The LCD.
    */
   public static final TextLCD LCD = LocalEV3.get().getTextLCD();
@@ -158,10 +152,6 @@ public class Resources {
    */
   public static Odometer odometer = new Odometer();
   
-  /**
-   * The odometry correction.
-   */
-  public static OdometryCorrection odometryCorrection = new OdometryCorrection();
   
   /**
    * The obstacle avoidance.
