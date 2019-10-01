@@ -53,17 +53,17 @@ public class Resources {
   /**
    * The slow speed in degrees/seconds.
    */
-  public static final int SLOW = 50;
+  public static final int SLOW = 100;
   
   /**
    * The acceleration in degrees/seconds.
    */
-  public static final int ACCELERATION = 1000;
+  public static final int ACCELERATION = 1500;
   
   /**
    * The degree error.
    */
-  public static final double DEG_ERR = 3.0;
+  public static final double DEG_ERR = 2.0;
   
   /**
    * The cm error.
@@ -98,7 +98,7 @@ public class Resources {
   /**
    * Selected map index.
    */
-  public static final int MAP_INDEX = 0;
+  public static final int MAP_INDEX = 3;
   
   /**
    * Selected waypoints (X,Y square units)
