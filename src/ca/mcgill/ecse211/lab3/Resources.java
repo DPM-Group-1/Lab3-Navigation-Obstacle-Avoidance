@@ -48,7 +48,7 @@ public class Resources {
   /**
    * The fast speed in degrees/seconds.
    */
-  public static final int FAST = 150;
+  public static final int FAST = 200;
   
   /**
    * The slow speed in degrees/seconds.
@@ -83,7 +83,7 @@ public class Resources {
   /**
    * Minimum intensity differential between dark lines and light floor.
    */
-  public static final double MIN_INTENSITY_DIFF = -0.045;
+  public static final double MIN_INTENSITY_DIFF = -0.030;
   
   /**
    * Color sensor offset with wheel base in centimeters.
@@ -93,7 +93,12 @@ public class Resources {
   /**
    * Waypoints (coordinates X,Y in square unit).
    */
-  public static final double[][] WAYPOINTS = {{3,2}, {2,2}, {1,3}, {2,1}};
+  public static final double[][] WAYPOINTS = {{3,2}, {2,2}, {1,3}, {2,1}, {1,1}};
+  
+  /**
+   * Odometry correction angle in degree (Maximum of 22).
+   */
+  public static final int ODOMETRY_CORRECTION_ANGLE = 20;
   
   /**
    * HARDWARE CONSTANTS
