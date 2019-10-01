@@ -32,28 +32,30 @@ public class OdometryCorrection implements Runnable {
       
       colorSensorSensorProvider.fetchSample(colorSample, 0); // Get a sample.
       
-      if (colorSample[0] - lastSample[0] < MIN_INTENSITY_DIFF) { // If the ground is dark than in previous samplings...
-        
-        Sound.beep(); // Audible indication that a line has been detected.
+      if (colorSample[0] - lastSample[0] < MIN_INTENSITY_DIFF) { // If the ground is dark than in previous samplings..
         
         double[] position = odometer.getPosition(); // Get position to identify which line has been crossed.
         
-        if ( (position[2] > 315 && position[2] < 360) || (position[2] > 0 && position[2] < 45) || (position[2] > 135 && position[2] < 225) ) { // Along Y axis.
+        if ( (position[2] > 90-ODOMETRY_CORRECTION_ANGLE && position[2] < 90+ODOMETRY_CORRECTION_ANGLE) || (position[2] > 180-ODOMETRY_CORRECTION_ANGLE && position[2] < 180+ODOMETRY_CORRECTION_ANGLE) ) { // Along Y axis.
+          Sound.beep(); // Audible Y correction.
           if (position[1] < TILE_SIZE * 1.5) { // If closer to first line...
-            position[1] = 1*TILE_SIZE - (COLOR_SENSOR_OFFSET * Math.cos(Math.toRadians(position[2]))); // Correct Y while taking into account sensor offset.
+            position[1] = 1*TILE_SIZE - (COLOR_SENSOR_OFFSET * Math.sin(Math.toRadians(position[2]))); // Correct Y while taking into account sensor offset.
           } else if (position[1] < TILE_SIZE * 2.5) { // ...to second line...
-            position[1] = 2*TILE_SIZE - (COLOR_SENSOR_OFFSET * Math.cos(Math.toRadians(position[2])));
+            position[1] = 2*TILE_SIZE - (COLOR_SENSOR_OFFSET * Math.sin(Math.toRadians(position[2])));
           } else { // ...or the third line.
-            position[1] = 3*TILE_SIZE - (COLOR_SENSOR_OFFSET * Math.cos(Math.toRadians(position[2])));
+            position[1] = 3*TILE_SIZE - (COLOR_SENSOR_OFFSET * Math.sin(Math.toRadians(position[2])));
           }
-        } else { // Along X axis.
+        } else if ( (position[2] > 360-ODOMETRY_CORRECTION_ANGLE && position[2] < 360) || (position[2] > 0 && position[2] < 0+ODOMETRY_CORRECTION_ANGLE) || (position[2] > 270-ODOMETRY_CORRECTION_ANGLE && position[2] < 270+ODOMETRY_CORRECTION_ANGLE) ) { // Along X axis.
+          Sound.buzz(); // Audible X correction.
           if (position[0] < TILE_SIZE * 1.5) { // If closer to first line...
-            position[0] = 1*TILE_SIZE - (COLOR_SENSOR_OFFSET * Math.sin(Math.toRadians(position[2]))); // Correct X while taking into account sensor offset.
+            position[0] = 1*TILE_SIZE - (COLOR_SENSOR_OFFSET * Math.cos(Math.toRadians(position[2]))); // Correct X while taking into account sensor offset.
           } else if (position[0] < TILE_SIZE * 2.5) { // ...to second line...
-            position[0] = 2*TILE_SIZE - (COLOR_SENSOR_OFFSET * Math.sin(Math.toRadians(position[2])));
+            position[0] = 2*TILE_SIZE - (COLOR_SENSOR_OFFSET * Math.cos(Math.toRadians(position[2])));
           } else { // ...or the third line.
-            position[0] = 3*TILE_SIZE - (COLOR_SENSOR_OFFSET * Math.sin(Math.toRadians(position[2])));
+            position[0] = 3*TILE_SIZE - (COLOR_SENSOR_OFFSET * Math.cos(Math.toRadians(position[2])));
           }
+        } else {
+          // Do nothing as we can't determine the line that we crossed.
         }
         
         odometer.setPosition(position, updateTable); // Correct odometer.
