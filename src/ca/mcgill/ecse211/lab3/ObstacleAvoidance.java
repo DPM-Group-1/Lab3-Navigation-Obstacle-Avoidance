@@ -78,7 +78,7 @@ public class ObstacleAvoidance implements Runnable {
             Log.log(Log.Sender.avoidance,"avoiding obstacle!");
             Navigation.setSpeeds(0, 0);
             Navigation.turnTo(0,true);
-            Navigation.goForward(15, false);
+            Navigation.goForward(25, false);
             Log.log(Log.Sender.avoidance,"obstacle avoided!");
             safe = true;
         } else if (!Navigation.isDone(destx, desty)) {

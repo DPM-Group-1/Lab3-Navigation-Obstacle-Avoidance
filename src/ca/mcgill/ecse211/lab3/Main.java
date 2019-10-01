@@ -12,7 +12,7 @@ public class Main {
   /**
    * Set this to true to print to a file.
    */
-  public static final boolean WRITE_TO_FILE = false;
+  public static final boolean WRITE_TO_FILE = true;
 
   /**
    * Main entry point.
@@ -21,7 +21,7 @@ public class Main {
    */
   public static void main(String[] args) {
 
-    Log.setLogging(false, false, false, false);
+    Log.setLogging(true, true, false, false);
 
     if (WRITE_TO_FILE) {
       setupLogWriter();

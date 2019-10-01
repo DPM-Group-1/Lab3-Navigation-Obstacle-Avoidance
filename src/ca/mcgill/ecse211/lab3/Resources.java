@@ -43,7 +43,7 @@ public class Resources {
   /**
    * The odometer timeout period in milliseconds.
    */
-  public static final int TIMEOUT_PERIOD = 50;
+  public static final int TIMEOUT_PERIOD = 30;
   
   /**
    * The fast speed in degrees/seconds.
@@ -83,7 +83,7 @@ public class Resources {
   /**
    * Minimum intensity differential between dark lines and light floor.
    */
-  public static final double MIN_INTENSITY_DIFF = -0.030;
+  public static final double MIN_INTENSITY_DIFF = -0.020;
   
   /**
    * Color sensor offset with wheel base in centimeters.
@@ -93,12 +93,12 @@ public class Resources {
   /**
    * Waypoints (coordinates X,Y in square unit).
    */
-  public static final double[][] WAYPOINTS = {{3,2}, {2,2}, {1,3}, {2,1}, {1,1}};
+  public static final double[][] WAYPOINTS = {{1,3}};
   
   /**
    * Odometry correction angle in degree (Maximum of 22).
    */
-  public static final int ODOMETRY_CORRECTION_ANGLE = 20;
+  public static final int ODOMETRY_CORRECTION_ANGLE = 15;
   
   /**
    * HARDWARE CONSTANTS

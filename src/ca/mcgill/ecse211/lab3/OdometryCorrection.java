@@ -13,7 +13,7 @@ import lejos.hardware.Sound;
 
 public class OdometryCorrection implements Runnable {
   
-  private static final long CORRECTION_PERIOD = 100;
+  private static final long CORRECTION_PERIOD = 90;
   private static final boolean[] updateTable = {true, true, true};
 
   /*
@@ -23,7 +23,7 @@ public class OdometryCorrection implements Runnable {
     long correctionStart, correctionEnd;
     
     SampleProvider colorSensorSensorProvider = colorSensor.getRedMode(); // Create a sample provider and a sample array.
-    MedianFilter colorSensorMedianFilter = new MedianFilter(colorSensorSensorProvider, 5); // Use a median filter to filter out noise.
+    MedianFilter colorSensorMedianFilter = new MedianFilter(colorSensorSensorProvider, 4); // Use a median filter to filter out noise.
     float[] colorSample = new float[colorSensorMedianFilter.sampleSize()]; // Create a sample array.
     float[] lastSample = new float[colorSensorMedianFilter.sampleSize()]; // Create another array to store the last result.
 
