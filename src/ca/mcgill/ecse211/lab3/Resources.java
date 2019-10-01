@@ -43,12 +43,12 @@ public class Resources {
   /**
    * The odometer timeout period in milliseconds.
    */
-  public static final int TIMEOUT_PERIOD = 50;
+  public static final int TIMEOUT_PERIOD = 30;
   
   /**
    * The fast speed in degrees/seconds.
    */
-  public static final int FAST = 150;
+  public static final int FAST = 200;
   
   /**
    * The slow speed in degrees/seconds.
@@ -83,7 +83,7 @@ public class Resources {
   /**
    * Minimum intensity differential between dark lines and light floor.
    */
-  public static final double MIN_INTENSITY_DIFF = -0.045;
+  public static final double MIN_INTENSITY_DIFF = -0.020;
   
   /**
    * Color sensor offset with wheel base in centimeters.
@@ -93,7 +93,12 @@ public class Resources {
   /**
    * Waypoints (coordinates X,Y in square unit).
    */
-  public static final double[][] WAYPOINTS = {{3,2}, {2,2}, {1,3}, {2,1}};
+  public static final double[][] WAYPOINTS = {{1,3}};
+  
+  /**
+   * Odometry correction angle in degree (Maximum of 22).
+   */
+  public static final int ODOMETRY_CORRECTION_ANGLE = 15;
   
   /**
    * HARDWARE CONSTANTS
@@ -142,6 +147,11 @@ public class Resources {
    * The odometer.
    */
   public static Odometer odometer = new Odometer();
+  
+  /**
+   * The odometry correction.
+   */
+  public static OdometryCorrection odometryCorrection = new OdometryCorrection();
   
   /**
    * The obstacle avoidance.

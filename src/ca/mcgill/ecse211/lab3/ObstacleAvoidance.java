@@ -75,16 +75,12 @@ public class ObstacleAvoidance implements Runnable {
       } else if (state == TRAVELING) {
         checkEmergency();
         if (state == EMERGENCY) { // order matters!
-          new Thread(new Runnable() {
-            @Override public void run() {
-              Log.log(Log.Sender.avoidance,"avoiding obstacle!");
-              Navigation.setSpeeds(0, 0);
-              Navigation.turnTo(0,true);
-              Navigation.goForward(5, false);
-              Log.log(Log.Sender.avoidance,"obstacle avoided!");
-              safe = true;
-            }
-          }).start();
+            Log.log(Log.Sender.avoidance,"avoiding obstacle!");
+            Navigation.setSpeeds(0, 0);
+            Navigation.turnTo(0,true);
+            Navigation.goForward(25, false);
+            Log.log(Log.Sender.avoidance,"obstacle avoided!");
+            safe = true;
         } else if (!Navigation.isDone(destx, desty)) {
           updateTravel();
         } else { // Arrived!
